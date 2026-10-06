@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ChainCert | Blockchain Record Verification</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="logo">
+            🔗 ChainCert
+        </div>
+
+        <div class="subtitle">
+            Blockchain-Based Academic Record Verification
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main>
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section class="dashboard">
+
+            <div class="stat-card">
+
+                <h3>Total Records</h3>
+
+                <p id="totalRecords">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>Total Blocks</h3>
+
+                <p id="totalBlocks">
+                    1
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>Blockchain Status</h3>
+
+                <p id="status">
+                    Checking...
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= ADD RECORD ================= -->
+
+        <section class="card">
+
+            <h2>
+                ➕ Add Academic Record
+            </h2>
+
+
+            <form id="recordForm">
+
+
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Student Name"
+                    required
+                >
+
+
+                <input
+                    type="text"
+                    id="certificateId"
+                    placeholder="Certificate ID"
+                    required
+                >
+
+
+                <input
+                    type="text"
+                    id="course"
+                    placeholder="Course"
+                    required
+                >
+
+
+                <input
+                    type="number"
+                    id="marks"
+                    placeholder="Marks"
+                    min="0"
+                    max="100"
+                    required
+                >
+
+
+                <input
+                    type="date"
+                    id="date"
+                    required
+                >
+
+
+                <button type="submit">
+
+                    ADD TO BLOCKCHAIN
+
+                </button>
+
+
+            </form>
+
+
+            <p id="addMessage"></p>
+
+        </section>
+
+
+
+        <!-- ================= VERIFY CERTIFICATE ================= -->
+
+        <section class="card">
+
+            <h2>
+                🔍 Verify Certificate
+            </h2>
+
+
+            <div class="verify-box">
+
+
+                <input
+                    type="text"
+                    id="verifyId"
+                    placeholder="Enter Certificate ID"
+                >
+
+
+                <button
+                    type="button"
+                    onclick="verifyCertificate()">
+
+                    VERIFY
+
+                </button>
+
+
+            </div>
+
+
+            <div id="verificationResult"></div>
+
+        </section>
+
+
+
+        <!-- ================= BLOCKCHAIN ================= -->
+
+        <section class="card">
+
+            <h2>
+                ⛓️ Blockchain Records
+            </h2>
+
+
+            <div id="blockchainContainer">
+
+                Loading blockchain...
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= TAMPER DETECTION ================= -->
+
+        <section class="card tamper-section">
+
+            <h2>
+                🛡️ Tamper Detection Demo
+            </h2>
+
+
+            <p>
+
+                Modify a blockchain block to demonstrate
+                how ChainCert detects unauthorized changes.
+
+            </p>
+
+
+            <div class="verify-box">
+
+
+                <input
+                    type="number"
+                    id="tamperBlock"
+                    placeholder="Enter Block Number"
+                    min="1"
+                >
+
+
+                <button
+                    type="button"
+                    onclick="tamperBlock()">
+
+                    SIMULATE TAMPERING
+
+                </button>
+
+
+            </div>
+
+
+            <div id="tamperResult"></div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+
+            ChainCert © 2026 |
+
+            Blockchain-Based Academic Record Verification
+
+        </p>
+
+    </footer>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
+</body>
+
+</html>
